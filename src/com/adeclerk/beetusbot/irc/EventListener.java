@@ -133,6 +133,7 @@ public class EventListener extends IRCEventAdapter implements IRCEventListener {
     }
 
     public void onHelp(IRCUser user) {
+        conn.doPrivmsg(user.getNick(), "beetusbot help ===============");
         conn.doPrivmsg(user.getNick(), ".beetusbot-signup -> opt-in");
         conn.doPrivmsg(user.getNick(), ".beetusbot-signout -> opt-out");
         conn.doPrivmsg(user.getNick(), ".bg -> add bg if opted in");
@@ -156,7 +157,7 @@ public class EventListener extends IRCEventAdapter implements IRCEventListener {
         UserDao userDao = new UserDao();
         User tmp = userDao.getUserByNick(user.getNick());
         if (tmp != null) {
-            conn.doPrivmsg(channel, "https://highasdick.biz:8080/bg/log?user=" + tmp.getNick());
+            conn.doPrivmsg(channel, "https://highasdick.biz:8080/beetusbot/log?user=" + tmp.getNick());
         }
     }
 
