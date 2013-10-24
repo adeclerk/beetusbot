@@ -4,7 +4,16 @@
  */
 package com.adeclerk.beetusbot;
 
-import com.adeclerk.beetusbot.irc.EventListener;
+import com.adeclerk.beetusbot.irc.AddBgHandler;
+import com.adeclerk.beetusbot.irc.BgLogHandler;
+import com.adeclerk.beetusbot.irc.ConnectionHandler;
+import com.adeclerk.beetusbot.irc.HelpHandler;
+import com.adeclerk.beetusbot.irc.NickChangeHandler;
+import com.adeclerk.beetusbot.irc.OptInHandler;
+import com.adeclerk.beetusbot.irc.OptOutHandler;
+import com.adeclerk.beetusbot.irc.ReconnectHandler;
+import com.adeclerk.beetusbot.irc.RmBgHandler;
+import com.adeclerk.beetusbot.irc.UserRegisterHandler;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,9 +39,19 @@ public class BeetusBot {
                 null,
                 "beetusbot",
                 "beetus",
-                "the beetus");
+                "bg loggin bot");
 
-        conn.addIRCEventListener(new EventListener(conn, CHANNEL));
+        conn.addIRCEventListener(new AddBgHandler(conn,CHANNEL));
+        conn.addIRCEventListener(new BgLogHandler(conn,CHANNEL));
+        conn.addIRCEventListener(new ConnectionHandler(conn,CHANNEL));
+        conn.addIRCEventListener(new HelpHandler(conn,CHANNEL));
+        conn.addIRCEventListener(new NickChangeHandler(conn,CHANNEL));
+        conn.addIRCEventListener(new OptInHandler(conn, CHANNEL));
+        conn.addIRCEventListener(new OptOutHandler(conn, CHANNEL));
+        conn.addIRCEventListener(new ReconnectHandler(conn,CHANNEL));
+        conn.addIRCEventListener(new RmBgHandler(conn,CHANNEL));
+        conn.addIRCEventListener(new UserRegisterHandler(conn));
+        
         conn.addTrustManager(new SSLDefaultTrustManager());
         conn.setDaemon(false);
         conn.setColors(true);

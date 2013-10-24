@@ -4,6 +4,7 @@
  */
 package com.adeclerk.beetusbot.model;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -25,14 +27,20 @@ public class User {
     @Id
     @GeneratedValue(generator="incr")
     private int id;
+
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date added;
+    
+    private String unit;
     
     private String nick;
-
     @OneToMany(fetch=FetchType.EAGER, mappedBy="user")
     private Set<BloodGlucose> bloodGlucose = new HashSet<BloodGlucose>();
     public User() { }
-    public User(String nick) {
+    public User(String nick, String unit) {
         this.nick = nick;
+        this.unit = unit;
+        this.added = new Date();
     }
 
     /**
@@ -75,5 +83,33 @@ public class User {
      */
     public void setBloodGlucose(Set<BloodGlucose> bloodGlucose) {
         this.bloodGlucose = bloodGlucose;
+    }
+
+    /**
+     * @return the added
+     */
+    public Date getAdded() {
+        return added;
+    }
+
+    /**
+     * @param added the added to set
+     */
+    public void setAdded(Date added) {
+        this.added = added;
+    }
+
+    /**
+     * @return the unit
+     */
+    public String getUnit() {
+        return unit;
+    }
+
+    /**
+     * @param unit the unit to set
+     */
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 }
