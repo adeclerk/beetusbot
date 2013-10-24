@@ -34,17 +34,15 @@ public class BeetusBot {
 
         conn.addIRCEventListener(new EventListener(conn, CHANNEL));
         conn.addTrustManager(new SSLDefaultTrustManager());
-        conn.setDaemon(true);
-        conn.setColors(false);
+        conn.setDaemon(false);
+        conn.setColors(true);
         conn.setPong(true);
 
         try {
             System.out.println("DO CONNECT");
             conn.connect(); // Try to connect!!! Don't forget this!!!
             conn.doJoin(CHANNEL);
-            while (true) {
-                Thread.sleep(1);
-            }
+            conn.join();
         } catch (IOException ioexc) {
             ioexc.printStackTrace();
         } catch (InterruptedException ex) {
