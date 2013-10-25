@@ -13,6 +13,7 @@ import com.adeclerk.beetusbot.irc.OptInHandler;
 import com.adeclerk.beetusbot.irc.OptOutHandler;
 import com.adeclerk.beetusbot.irc.ReconnectHandler;
 import com.adeclerk.beetusbot.irc.RmBgHandler;
+import com.adeclerk.beetusbot.irc.StatsHandler;
 import com.adeclerk.beetusbot.irc.UserRegisterHandler;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -51,6 +52,7 @@ public class BeetusBot {
         conn.addIRCEventListener(new ReconnectHandler(conn,CHANNEL));
         conn.addIRCEventListener(new RmBgHandler(conn,CHANNEL));
         conn.addIRCEventListener(new UserRegisterHandler(conn));
+        conn.addIRCEventListener(new StatsHandler(conn,CHANNEL));
         
         conn.addTrustManager(new SSLDefaultTrustManager());
         conn.setDaemon(false);

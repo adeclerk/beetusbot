@@ -30,6 +30,7 @@ public class HelpHandler extends GenericHandler {
                 conn.doPrivmsg(user.getNick(), ".bg -> add bg if opted in");
                 conn.doPrivmsg(user.getNick(), ".bgoops -> remove last bg");
                 conn.doPrivmsg(user.getNick(), ".bg-log -> show link to public log");
+                conn.doPrivmsg(user.getNick(), ".bg-stats -> show bg count and avg");
             }
         }
     }
