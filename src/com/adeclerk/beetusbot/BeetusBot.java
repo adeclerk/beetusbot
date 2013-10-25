@@ -58,7 +58,6 @@ public class BeetusBot {
         conn.setPong(true);
 
         try {
-            System.out.println("DO CONNECT");
             conn.connect(); // Try to connect!!! Don't forget this!!!
             conn.doJoin(CHANNEL);
             conn.join();
