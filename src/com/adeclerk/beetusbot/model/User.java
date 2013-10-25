@@ -7,6 +7,7 @@ package com.adeclerk.beetusbot.model;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -34,7 +35,7 @@ public class User {
     private String unit;
     
     private String nick;
-    @OneToMany(fetch=FetchType.EAGER, mappedBy="user")
+    @OneToMany(fetch=FetchType.EAGER, mappedBy="user", cascade=CascadeType.ALL)
     private Set<BloodGlucose> bloodGlucose = new HashSet<BloodGlucose>();
     public User() { }
     public User(String nick, String unit) {

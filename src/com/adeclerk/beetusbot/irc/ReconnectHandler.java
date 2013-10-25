@@ -22,15 +22,19 @@ public class ReconnectHandler extends GenericHandler {
     @Override
     public void onDisconnected() {
         try {
-            Thread.sleep(60000);
+            Thread.sleep(6000);
         } catch (InterruptedException ex) {
             Logger.getLogger(ReconnectHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try {
-            conn.connect();
-            conn.doJoin(channel);
-        } catch (IOException ex) {
-            Logger.getLogger(ReconnectHandler.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        conn.close();
+        conn = new SSLIRCConnection(
+            "irc.freenode.net",
+            new int[]{6697, 7000, 7070},
+            null,
+            "beetusbot",
+            "beetus",
+            "bg loggin bot");
+        conn.doJoin(channel);
+ 
     }
 }
