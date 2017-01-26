@@ -17,11 +17,8 @@
 package com.adeclerk.beetusbot.irc;
 
 import com.adeclerk.beetusbot.dao.UserDao;
-import com.adeclerk.beetusbot.log.Logger;
 import com.adeclerk.beetusbot.model.User;
 import java.util.StringTokenizer;
-import org.schwering.irc.lib.IRCEventAdapter;
-import org.schwering.irc.lib.IRCEventListener;
 import org.schwering.irc.lib.IRCUser;
 import org.schwering.irc.lib.ssl.SSLIRCConnection;
 

@@ -17,7 +17,6 @@
 package com.adeclerk.beetusbot.dao;
 
 import java.util.ArrayList;
-import org.hibernate.Criteria;
 import org.hibernate.criterion.Criterion;
 
 /**

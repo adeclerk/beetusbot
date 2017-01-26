@@ -28,8 +28,6 @@ import com.adeclerk.beetusbot.irc.RmBgHandler;
 import com.adeclerk.beetusbot.irc.StatsHandler;
 import com.adeclerk.beetusbot.irc.UserRegisterHandler;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.schwering.irc.lib.ssl.SSLDefaultTrustManager;
 import org.schwering.irc.lib.ssl.SSLIRCConnection;
 
