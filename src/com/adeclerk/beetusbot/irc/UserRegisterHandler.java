@@ -52,12 +52,12 @@ public class UserRegisterHandler extends IRCEventAdapter implements IRCEventList
             if (pUser != null) {
                 if (msg.equals("1")) {
                     conn.doPrivmsg(user.getNick(), "mg/dL selected.");
-                    userDao.create(new User(user.getNick(),"mg/dL"));
+                    userDao.create(new User(user.getNick(), "mg/dL"));
                     pendingDao.delete(pUser);
                     logger.log("user_added", user.getNick());
                 } else if (msg.equals("2")) {
                     conn.doPrivmsg(user.getNick(), "mmol/L selected.");
-                    userDao.create(new User(user.getNick(),"mmol/L"));
+                    userDao.create(new User(user.getNick(), "mmol/L"));
                     pendingDao.delete(pUser);
                     logger.log("user_added", user.getNick());
                 } else {
@@ -66,7 +66,7 @@ public class UserRegisterHandler extends IRCEventAdapter implements IRCEventList
             } else {
                 conn.doPrivmsg(user.getNick(), "Whatchu talkin' 'bout, Willis?");
             }
-        } 
+        }
         return;
     }
 }

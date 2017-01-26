@@ -23,21 +23,23 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
-
 /**
  *
  * @author adeclerk
  */
 @Entity
-@Table(name="pending_users")
-@GenericGenerator(name="incr",strategy="increment")
+@Table(name = "pending_users")
+@GenericGenerator(name = "incr", strategy = "increment")
 public class PendingUser {
+
     @Id
-    @GeneratedValue(generator="incr")
+    @GeneratedValue(generator = "incr")
     private int id;
     private String nick;
-    
-    public PendingUser() { } 
+
+    public PendingUser() {
+    }
+
     public PendingUser(String nick) {
         this.nick = nick;
     }

@@ -23,5 +23,5 @@ import com.adeclerk.beetusbot.model.BloodGlucose;
  * @author adeclerk
  */
 public class BloodGlucoseDao extends HibernateDao<BloodGlucose> {
-    
+
 }

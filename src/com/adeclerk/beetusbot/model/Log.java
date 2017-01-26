@@ -30,24 +30,27 @@ import org.hibernate.annotations.GenericGenerator;
  * @author adeclerk
  */
 @Entity
-@Table(name="log")
-@GenericGenerator(name="incr", strategy="increment")
+@Table(name = "log")
+@GenericGenerator(name = "incr", strategy = "increment")
 public class Log {
-    
+
     @Id
-    @GeneratedValue(generator="incr")
+    @GeneratedValue(generator = "incr")
     private long id;
     private String event;
     private String content;
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
 
-    public Log() { }
+    public Log() {
+    }
+
     public Log(String event, String content) {
         this.event = event;
         this.content = content;
         this.timestamp = new Date();
     }
+
     /**
      * @return the id
      */

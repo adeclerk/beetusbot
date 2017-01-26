@@ -25,8 +25,10 @@ import org.schwering.irc.lib.ssl.SSLIRCConnection;
  *
  * @author adeclerk
  */
-public class NickChangeHandler extends GenericHandler{
+public class NickChangeHandler extends GenericHandler {
+
     private UserDao userDao;
+
     public NickChangeHandler(SSLIRCConnection conn, String channel) {
         super(conn, channel);
         userDao = new UserDao();
@@ -35,11 +37,10 @@ public class NickChangeHandler extends GenericHandler{
     @Override
     public void onNick(IRCUser user, String newNick) {
         User usr = userDao.getUserByNick(user.getNick());
-        if(usr != null) {
+        if (usr != null) {
             usr.setNick(newNick);
             userDao.update(usr);
         }
     }
-    
-    
+
 }

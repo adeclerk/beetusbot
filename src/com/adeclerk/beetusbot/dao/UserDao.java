@@ -26,8 +26,8 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author adeclerk
  */
-public class UserDao extends HibernateDao<User>{
-    
+public class UserDao extends HibernateDao<User> {
+
     public User getUserByNick(String nick) {
         Session dbSess = DatabaseUtil.getSession();
         Criteria crit = dbSess.createCriteria(User.class);
@@ -35,10 +35,10 @@ public class UserDao extends HibernateDao<User>{
         User ret = null;
         try {
             ret = (User) crit.uniqueResult();
-        } catch(Exception e) {
+        } catch (Exception e) {
             System.out.println("ECEPTION");
             return null;
-            
+
         } finally {
             dbSess.close();
             return ret;

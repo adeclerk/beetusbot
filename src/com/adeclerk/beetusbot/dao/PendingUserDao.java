@@ -22,8 +22,8 @@ import com.adeclerk.beetusbot.model.PendingUser;
  *
  * @author adeclerk
  */
-public class PendingUserDao extends HibernateDao<PendingUser>{
-    
+public class PendingUserDao extends HibernateDao<PendingUser> {
+
     public PendingUser getPendingUser(String name) {
         return super.getItemByField("nick", name);
     }

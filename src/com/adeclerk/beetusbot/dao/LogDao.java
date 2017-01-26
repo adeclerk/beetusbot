@@ -22,6 +22,6 @@ import com.adeclerk.beetusbot.model.Log;
  *
  * @author adeclerk
  */
-public class LogDao extends HibernateDao<Log>{
-    
+public class LogDao extends HibernateDao<Log> {
+
 }

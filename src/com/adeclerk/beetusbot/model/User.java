@@ -34,22 +34,26 @@ import org.hibernate.annotations.GenericGenerator;
  * @author adeclerk
  */
 @Entity
-@Table(name="user")
-@GenericGenerator(name="incr",strategy="increment")
+@Table(name = "user")
+@GenericGenerator(name = "incr", strategy = "increment")
 public class User {
+
     @Id
-    @GeneratedValue(generator="incr")
+    @GeneratedValue(generator = "incr")
     private int id;
 
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date added;
-    
+
     private String unit;
-    
+
     private String nick;
-    @OneToMany(fetch=FetchType.EAGER, mappedBy="user", cascade=CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
     private Set<BloodGlucose> bloodGlucose = new HashSet<BloodGlucose>();
-    public User() { }
+
+    public User() {
+    }
+
     public User(String nick, String unit) {
         this.nick = nick;
         this.unit = unit;

@@ -25,11 +25,12 @@ import org.schwering.irc.lib.ssl.SSLIRCConnection;
  *
  * @author adeclerk
  */
-public class GenericHandler extends IRCEventAdapter implements IRCEventListener{
+public class GenericHandler extends IRCEventAdapter implements IRCEventListener {
+
     protected Logger logger;
     protected String channel;
     protected SSLIRCConnection conn;
-    
+
     public GenericHandler(SSLIRCConnection conn, String channel) {
         this.logger = Logger.getInstance();
         this.channel = channel;

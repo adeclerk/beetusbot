@@ -34,30 +34,34 @@ import org.hibernate.annotations.GenericGenerator;
  * @author adeclerk
  */
 @Entity
-@Table(name="blood_glucose")
-@GenericGenerator(name="incr", strategy="increment")
+@Table(name = "blood_glucose")
+@GenericGenerator(name = "incr", strategy = "increment")
 public class BloodGlucose implements Comparable {
-    
+
     @Id
-    @GeneratedValue(generator="incr")
+    @GeneratedValue(generator = "incr")
     private long id;
-    
-    @ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name="user_id", nullable = false)
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
     private String value;
-    
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
 
     private String comment;
-    public BloodGlucose() { }
+
+    public BloodGlucose() {
+    }
+
     public BloodGlucose(User user, String value, String comment) {
         this.user = user;
         this.value = value;
         this.timestamp = new Date();
         this.comment = comment;
     }
+
     /**
      * @return the id
      */
@@ -117,14 +121,15 @@ public class BloodGlucose implements Comparable {
     @Transient
     @Override
     public int compareTo(Object t) {
-        BloodGlucose other = (BloodGlucose)t;
+        BloodGlucose other = (BloodGlucose) t;
         Date otherDate = other.getTimestamp();
-        if(this.timestamp.before(otherDate))
+        if (this.timestamp.before(otherDate)) {
             return -1;
-        else if(this.timestamp.equals(otherDate))
+        } else if (this.timestamp.equals(otherDate)) {
             return 0;
-        else
+        } else {
             return 1;
+        }
     }
 
     /**

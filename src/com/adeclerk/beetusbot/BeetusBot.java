@@ -52,18 +52,18 @@ public class BeetusBot {
                 "beetus",
                 "bg loggin bot");
 
-        conn.addIRCEventListener(new AddBgHandler(conn,CHANNEL));
-        conn.addIRCEventListener(new BgLogHandler(conn,CHANNEL));
-        conn.addIRCEventListener(new ConnectionHandler(conn,CHANNEL));
-        conn.addIRCEventListener(new HelpHandler(conn,CHANNEL));
-        conn.addIRCEventListener(new NickChangeHandler(conn,CHANNEL));
+        conn.addIRCEventListener(new AddBgHandler(conn, CHANNEL));
+        conn.addIRCEventListener(new BgLogHandler(conn, CHANNEL));
+        conn.addIRCEventListener(new ConnectionHandler(conn, CHANNEL));
+        conn.addIRCEventListener(new HelpHandler(conn, CHANNEL));
+        conn.addIRCEventListener(new NickChangeHandler(conn, CHANNEL));
         conn.addIRCEventListener(new OptInHandler(conn, CHANNEL));
         conn.addIRCEventListener(new OptOutHandler(conn, CHANNEL));
-        conn.addIRCEventListener(new ReconnectHandler(conn,CHANNEL));
-        conn.addIRCEventListener(new RmBgHandler(conn,CHANNEL));
+        conn.addIRCEventListener(new ReconnectHandler(conn, CHANNEL));
+        conn.addIRCEventListener(new RmBgHandler(conn, CHANNEL));
         conn.addIRCEventListener(new UserRegisterHandler(conn));
-        conn.addIRCEventListener(new StatsHandler(conn,CHANNEL));
-        
+        conn.addIRCEventListener(new StatsHandler(conn, CHANNEL));
+
         conn.addTrustManager(new SSLDefaultTrustManager());
         conn.setDaemon(false);
         conn.setColors(true);

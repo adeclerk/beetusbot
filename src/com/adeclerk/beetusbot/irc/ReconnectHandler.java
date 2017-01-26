@@ -26,9 +26,9 @@ import org.schwering.irc.lib.ssl.SSLIRCConnection;
  * @author adeclerk
  */
 public class ReconnectHandler extends GenericHandler {
-    
+
     public ReconnectHandler(SSLIRCConnection conn, String channel) {
-        super(conn,channel);
+        super(conn, channel);
     }
 
     @Override
@@ -40,13 +40,13 @@ public class ReconnectHandler extends GenericHandler {
         }
         conn.close();
         conn = new SSLIRCConnection(
-            "irc.freenode.net",
-            new int[]{6697, 7000, 7070},
-            null,
-            "beetusbot",
-            "beetus",
-            "bg loggin bot");
+                "irc.freenode.net",
+                new int[]{6697, 7000, 7070},
+                null,
+                "beetusbot",
+                "beetus",
+                "bg loggin bot");
         conn.doJoin(channel);
- 
+
     }
 }

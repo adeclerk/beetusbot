@@ -26,19 +26,22 @@ import org.hibernate.cfg.AnnotationConfiguration;
  * @author adeclerk
  */
 public class DatabaseUtil {
-    
+
     private static SessionFactory sessionFactory = null;
-    
+
     public static SessionFactory getSessionFactory() {
-        if(DatabaseUtil.sessionFactory == null)
-            sessionFactory = new AnnotationConfiguration().configure("/com/adeclerk/beetusbot/configuration/hibernate.cfg.xml").buildSessionFactory();
+        if (DatabaseUtil.sessionFactory == null) {
+            sessionFactory = new AnnotationConfiguration()
+                    .configure("/com/adeclerk/beetusbot/configuration/hibernate.cfg.xml")
+                    .buildSessionFactory();
+        }
         return sessionFactory;
     }
-    
-    public static Session getSession() { 
+
+    public static Session getSession() {
         return getSessionFactory().openSession();
     }
-    
+
     public static Transaction getTransaction(Session sess) {
         return sess.beginTransaction();
     }

@@ -23,9 +23,9 @@ import org.schwering.irc.lib.ssl.SSLIRCConnection;
  * @author adeclerk
  */
 public class ConnectionHandler extends GenericHandler {
-    
+
     public ConnectionHandler(SSLIRCConnection conn, String channel) {
-        super(conn,channel);
+        super(conn, channel);
     }
 
     @Override
@@ -40,12 +40,12 @@ public class ConnectionHandler extends GenericHandler {
 
     @Override
     public void onError(String msg) {
-        logger.log("error",msg);
+        logger.log("error", msg);
     }
 
     @Override
     public void onError(int num, String msg) {
         logger.log("erro", Integer.toString(num) + " : " + msg);
     }
-    
+
 }
